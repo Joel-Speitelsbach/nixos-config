@@ -5,7 +5,6 @@
   environment.systemPackages = with pkgs; [
   
     #libreoffice-still
-    firefox
     
     # development
     #diffuse
@@ -18,5 +17,5 @@
   # virtualisation.virtualbox.host.enable = true;
   
   # kernel version
-  boot.kernelPackages = pkgs.linuxPackages_4_9;
+  #boot.kernelPackages = pkgs.linuxPackages_4_9;
 }

@@ -6,6 +6,7 @@
     
     #standard graphical programs
     gnome3.gnome-disk-utility
+    firefox
     
     #gnome specific
     gksu
@@ -66,7 +67,9 @@
     gnome-online-miners.enable = false;
     tracker.enable = false;
     gnome-documents.enable = false;
+    chrome-gnome-shell.enable = true;
   };
+  nixpkgs.config.firefox.enableGnomeExtensions = true;
 
   # users 
   users.extraUsers.joel = {

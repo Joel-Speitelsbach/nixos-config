@@ -50,10 +50,8 @@
     xkbVariant = "neo";
     autoRepeatDelay = 200;
     autoRepeatInterval = 15;
-    #monitorSection = ''
-      #Modeline "1920x1080_60.00"  173.00  1920 2048 2248 2576  1080 1083 1088 1120 -hsync +vsync
-    #'';
   };
+  hardware.opengl.driSupport32Bit
 
   # Desktop Environment
   services.xserver.desktopManager.gnome3.enable = true;
@@ -100,6 +98,7 @@
   # time zone.
   time.timeZone = "Europe/Amsterdam";
   
+  # nvidia
   hardware.bumblebee.enable = true;
   nixpkgs.config.allowUnfree = true;
   

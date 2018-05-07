@@ -6,7 +6,12 @@
   
     #libreoffice-still
   ];
-
+  
+  #driver
+  services.xserver.videoDrivers = [ "nvidia" ];
+  hardware.opengl.driSupport32Bit = true;
+  
+  #boot into other OSes
   boot.loader.grub.extraEntries = ''
     menuentry "Ubuntu" {
       search --set=ubuntu --fs-uuid fb1a59f0-ad32-4bd3-8a93-cc413a599686
@@ -20,6 +25,7 @@
     }
   '';
   
+  #filesystem
   fileSystems."/mnt" =
     { device = "/dev/disk/by-uuid/fb1a59f0-ad32-4bd3-8a93-cc413a599686";
     };

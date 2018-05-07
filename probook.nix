@@ -6,11 +6,9 @@
   
   # nvidia
   hardware.bumblebee.enable = true;
-  nixpkgs.config.allowUnfree = true;
   hardware.opengl.driSupport32Bit
   imports =
-    [ # Include the results of the hardware scan.
-      ./optimus.nix
+    [ ./optimus.nix
     ];
 
   boot.loader.grub.extraEntries = ''

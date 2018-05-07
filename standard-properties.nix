@@ -22,8 +22,8 @@
     htop
   ];
   
-  #flash player
-  #nixpkgs.config.allowUnfree = true;
+  #unfree
+  nixpkgs.config.allowUnfree = true;
   #nixpkgs.config.firefox.enableAdobeFlash = true;
   
   # Gnome exclude Packages

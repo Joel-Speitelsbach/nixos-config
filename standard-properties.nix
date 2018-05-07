@@ -51,7 +51,6 @@
     autoRepeatDelay = 200;
     autoRepeatInterval = 15;
   };
-  hardware.opengl.driSupport32Bit
 
   # Desktop Environment
   services.xserver.desktopManager.gnome3.enable = true;
@@ -97,13 +96,5 @@
 
   # time zone.
   time.timeZone = "Europe/Amsterdam";
-  
-  # nvidia
-  hardware.bumblebee.enable = true;
-  nixpkgs.config.allowUnfree = true;
-  
-  #fileSystems."/boot" =
-    #{ device = "/dev/disk/by-uuid/C279-37B6";
-    #};
 
 }

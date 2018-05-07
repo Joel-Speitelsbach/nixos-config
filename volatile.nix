@@ -15,7 +15,4 @@
   
   #virtualbox
   # virtualisation.virtualbox.host.enable = true;
-  
-  # kernel version
-  boot.kernelPackages = pkgs.linuxPackages_4_9;
 }

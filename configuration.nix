@@ -9,7 +9,7 @@
       ./essential-system-properties.nix
       ./standard-properties.nix
       ./volatile.nix
-      ./nvidia.nix
+      ./cooltek.nix
     ];
 
 }

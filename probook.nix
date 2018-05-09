@@ -6,9 +6,9 @@
   
   # nvidia
   hardware.bumblebee.enable = true;
-  hardware.opengl.driSupport32Bit
+  hardware.opengl.driSupport32Bit = true;
   imports =
-    [ ./optimus.nix
+    [ #./optimus.nix
     ];
 
   boot.loader.grub.extraEntries = ''
@@ -27,4 +27,9 @@
       chainloader /EFI/Microsoft/Boot/bootmgfw.efi
     }
   '';
+  
+  #filesystem
+  #fileSystems."/mnt" =
+    #{ device = "/dev/disk/by-uuid/fb1a59f0-ad32-4bd3-8a93-cc413a599686";
+    #};
 }

@@ -8,9 +8,11 @@
     
     # development
     #diffuse
+    #python3Packages.tensorflowWithCuda
     
     #multimedia
     #vlc
+    
   ];
   
   #virtualbox

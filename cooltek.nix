@@ -29,4 +29,8 @@
   fileSystems."/mnt" =
     { device = "/dev/disk/by-uuid/fb1a59f0-ad32-4bd3-8a93-cc413a599686";
     };
+    
+  
+  services.printing.drivers =	[ pkgs.gutenprint pkgs.hplip ];
+  services.printing.browsing = true;
 }

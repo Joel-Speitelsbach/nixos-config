@@ -24,7 +24,6 @@
   
   #unfree
   nixpkgs.config.allowUnfree = true;
-  #nixpkgs.config.firefox.enableAdobeFlash = true;
   
   # Gnome exclude Packages
   environment.gnome3.excludePackages = with pkgs.gnome3; [
@@ -81,6 +80,10 @@
   
   # networking
   networking.hostName = "joels";
+  services.samba.enable = true;
+  
+  #printing
+  services.printing.enable = true;
   
   #temp & cleaning
   boot.cleanTmpDir = true;
@@ -93,6 +96,9 @@
     defaultLocale = "en_US.UTF-8";
     # supportedLocales = ["en_US.UTF-8" "de_DE.UTF-8"];
   };
+  
+  #virtualization
+  virtualisation.docker.enable = true;
 
   # time zone.
   time.timeZone = "Europe/Amsterdam";

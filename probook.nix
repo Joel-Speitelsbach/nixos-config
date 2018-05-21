@@ -1,6 +1,12 @@
 #!/bin/sh
 { pkgs, ... }:
-{
+let
+  ntfsMount = uuid:
+    { device = "/dev/disk/by-uuid/" + uuid;
+      fsType = "ntfs-3g";
+      options =  ["x-gvfs-show" "uid=1000"];
+    };
+in {
   # kernel version
   boot.kernelPackages = pkgs.linuxPackages_4_9;
   
@@ -24,12 +30,20 @@
       else
         search --no-floppy --fs-uuid --set=root C279-37B6
       fi
-      chainloader /EFI/Microsoft/Boot/bootmgfw.efi
+      chainloader /EFI/Microsoft/Boot/bootmgfw.efi 
     }
   '';
+  security.sudo.wheelNeedsPassword = false;
   
-  #filesystem
-  #fileSystems."/mnt" =
-    #{ device = "/dev/disk/by-uuid/fb1a59f0-ad32-4bd3-8a93-cc413a599686";
-    #};
+  fileSystems = {
+    "/mnt" =
+      { device = "/dev/vg/root";
+      };
+    "/Store" =
+      { device = "/dev/rot/store";
+        options = ["x-gvfs-show"];
+      };
+    "/WinMain"    = ntfsMount "B436699636695A7E";
+    "/WinStorage" = ntfsMount "42D2DD07D2DD0059";
+  };
 }

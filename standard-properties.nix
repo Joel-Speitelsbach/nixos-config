@@ -54,7 +54,8 @@
 
   # Desktop Environment
   services.xserver.desktopManager.gnome3.enable = true;
-  services.xserver.displayManager.gdm = {
+  services.xserver.desktopManager.lxqt.enable = true;
+  services.xserver.displayManager.lightdm = {
     enable = true;
     autoLogin.user = "joel";
     autoLogin.enable = true;
@@ -71,7 +72,7 @@
   # users 
   users.extraUsers.joel = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "networkmanager" ];
+    extraGroups = [ "wheel" "networkmanager" "audio" ];
     uid = 1000;
   };
   users.extraUsers.tester = {

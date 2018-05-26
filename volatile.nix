@@ -17,7 +17,9 @@
   
   programs.java.enable = true;
   #programs.java.package = pkgs.jre;
-  hardware.pulseaudio.enable = false;
+  
+  ## sound
+  hardware.pulseaudio.enable = true;
   #hardware.pulseaudio.support32Bit = true; 
   sound.enable = true;
   sound.enableOSSEmulation = true;

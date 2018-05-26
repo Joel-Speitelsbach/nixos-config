@@ -17,6 +17,8 @@ in {
     [ #./optimus.nix
     ];
 
+  # boot loader
+  boot.loader.timeout = 1;
   boot.loader.grub.extraEntries = ''
     menuentry "Ubuntu" {
       search --set=ubuntu --fs-uuid 5c3e493f-93ae-4809-9e1b-1b179075f2b0
@@ -33,6 +35,8 @@ in {
       chainloader /EFI/Microsoft/Boot/bootmgfw.efi 
     }
   '';
+  
+  # security
   security.sudo.wheelNeedsPassword = false;
   
   fileSystems = {

@@ -61,10 +61,11 @@
   };
   services.gnome3 = {
     gnome-online-accounts.enable = false;
-    gnome-online-miners.enable = false;
-    tracker.enable = false;
-    gnome-documents.enable = false;
+    gnome-online-miners.enable   = false;
+    tracker.enable               = false;
+    gnome-documents.enable       = false;
     chrome-gnome-shell.enable = true;
+    gvfs.enable               = true;
   };
   nixpkgs.config.firefox.enableGnomeExtensions = true;
 
@@ -85,6 +86,8 @@
   
   #printing
   services.printing.enable = true;
+  services.avahi.enable = true;
+  services.avahi.nssmdns = true;
   
   #temp & cleaning
   boot.cleanTmpDir = true;

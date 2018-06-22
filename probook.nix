@@ -38,6 +38,7 @@ in {
   
   # security
   security.sudo.wheelNeedsPassword = false;
+  system.autoUpgrade.enable = true;
   
   fileSystems = {
     "/mnt" =
@@ -47,7 +48,11 @@ in {
       { device = "/dev/rot/store";
         options = ["x-gvfs-show"];
       };
-    "/WinMain"    = ntfsMount "B436699636695A7E";
+    "/boot/efi" =
+      { device = "/dev/nvme0n1p1";
+        options = ["noauto"];
+      };
+    "/WinMain"    = ntfsMount "7F7445910E23C5AB";
     "/WinStorage" = ntfsMount "42D2DD07D2DD0059";
   };
 }

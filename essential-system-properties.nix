@@ -1,7 +1,7 @@
 #!/bin/sh
 { config, options, lib, modulesPath, fileSystems }:
 let 
-  btrfs_ssd_ops = [ "discard" ];
+  btrfs_ssd_ops = [ "discard" "noatime" ];
 in
 {
   # bootloader

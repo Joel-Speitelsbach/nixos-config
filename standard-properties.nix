@@ -86,8 +86,8 @@
   
   #printing
   services.printing.enable = true;
-  services.avahi.enable = true;
-  services.avahi.nssmdns = true;
+  #services.avahi.enable = true;
+  #services.avahi.nssmdns = true;
   
   #temp & cleaning
   boot.cleanTmpDir = true;

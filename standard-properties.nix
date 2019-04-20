@@ -11,12 +11,6 @@
     #gnome specific
     gksu
     
-    #fonts
-    #freefont_ttf
-    
-    # development
-    #gnumake
-    
     #base tools
     encfs
     htop
@@ -38,7 +32,6 @@
     gnome-shell-extensions
     gnome-music
     yelp
-    totem
     epiphany
   ];
   
@@ -53,8 +46,8 @@
 
   # Desktop Environment
   services.xserver.desktopManager.gnome3.enable = true;
-  services.xserver.desktopManager.lxqt.enable = true;
-  services.xserver.displayManager.lightdm = {
+                            #    .lxqt
+  services.xserver.displayManager.gdm = {
     enable = true;
     autoLogin.user = "joel";
     autoLogin.enable = true;
@@ -72,7 +65,7 @@
   # users 
   users.extraUsers.joel = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "networkmanager" "audio" ];
+    extraGroups = [ "wheel" "networkmanager" "audio" "scanner" "lp"];
     uid = 1000;
   };
   users.extraUsers.tester = {
@@ -83,13 +76,19 @@
   # networking
   networking.hostName = "joels";
   services.samba.enable = true;
+  services.samba.enableNmbd     = true;
+  services.samba.enableWinbindd = true;
+  services.samba.nsswins        = true;
   
-  #printing
+  # printing / scanning
   services.printing.enable = true;
   #services.avahi.enable = true;
   #services.avahi.nssmdns = true;
+  services.printing.drivers = [pkgs.gutenprint pkgs.hplip];
+  #hardware.sane.enable = true;  #didnt work..
+  #services.saned.enable = true; #the fist time
   
-  #temp & cleaning
+  # temp & cleaning
   boot.cleanTmpDir = true;
   services.journald.extraConfig = "SystemMaxUse=50M";
 
@@ -100,9 +99,6 @@
     defaultLocale = "en_US.UTF-8";
     # supportedLocales = ["en_US.UTF-8" "de_DE.UTF-8"];
   };
-  
-  #virtualization
-  virtualisation.docker.enable = true;
 
   # time zone.
   time.timeZone = "Europe/Amsterdam";

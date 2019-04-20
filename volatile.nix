@@ -3,29 +3,42 @@
 {
   # packages
   environment.systemPackages = with pkgs; [
-  
-    #libreoffice-still
-    
-    # development
-    #diffuse
-    #python3Packages.tensorflowWithCuda
-    
-    #multimedia
-    #vlc
-    
+    atom
+    chromium
+    efibootmgr
+    gdb
+    geany
+    geckodriver
+    gimp
+    git
+    gnumake
+    gparted
+    imagemagick
+    keepassx2
+    libreoffice-still
+    lz4
+    lzop
+    ntfs3g
+    p7zip
+    racket
+    trash-cli
+    vlc
+    wine
   ];
   
   programs.java.enable = true;
   #programs.java.package = pkgs.jre;
   
   ## sound
-  hardware.pulseaudio.enable = true;
-  #hardware.pulseaudio.support32Bit = true; 
+  #hardware.pulseaudio.enable = false;
+  hardware.pulseaudio.support32Bit = true; 
   sound.enable = true;
   sound.enableOSSEmulation = true;
   
+  ## firewall
   networking.firewall.enable = false;
   
-  #virtualbox
-  # virtualisation.virtualbox.host.enable = true;
+  ## virtualization
+  # virtualisation.virtualbox.host.enable = true;  
+  # virtualisation.docker.enable = true;
 }

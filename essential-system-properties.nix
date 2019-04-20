@@ -8,14 +8,16 @@ in
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.efi.efiSysMountPoint = "/boot/efi";
   boot.loader.grub = {
-    efiSupport = true;
-    #efiInstallAsRemovable = true; # in case canTouchEfiVariables doesn't work for your system
+      efiSupport = true;
     device = "nodev";
   };
+  
   
   # networking
   networking.networkmanager.enable = true;
   
+  
+  # filesystems
   fileSystems = {
     "/" =
       { fsType = "btrfs";
@@ -25,10 +27,8 @@ in
       { fsType = "btrfs";
         options = btrfs_ssd_ops;
       };
-    #"/boot/efi" =
-      #{ device = "/dev/nvme0n1p1";
-      #};
   };
+
 
   # This value determines the NixOS release with which your system is to be
   # compatible, in order to avoid breaking some software such as database

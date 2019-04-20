@@ -8,7 +8,9 @@ let
     };
 in {
   # kernel version
-  boot.kernelPackages = pkgs.linuxPackages_4_9;
+  #boot.kernelPackages = pkgs.linuxPackages_latest;
+  boot.kernelPackages = pkgs.linuxPackages_4_19;
+  
   
   # nvidia
   hardware.bumblebee.enable = true;
@@ -16,6 +18,7 @@ in {
   imports =
     [ #./optimus.nix
     ];
+
 
   # boot loader
   boot.loader.timeout = 1;
@@ -36,10 +39,12 @@ in {
     }
   '';
   
+  
   # security
   security.sudo.wheelNeedsPassword = false;
-  system.autoUpgrade.enable = true;
   
+  
+  # filesystem
   fileSystems = {
     "/mnt" =
       { device = "/dev/vg/root";
@@ -55,4 +60,9 @@ in {
     "/WinMain"    = ntfsMount "7F7445910E23C5AB";
     "/WinStorage" = ntfsMount "42D2DD07D2DD0059";
   };
+  
+  # hibernate
+  #swapDevices = [ { device = "/var/swapfile"; } ];
+  #boot.resumeDevice = "/var/swapfile";
+  
 }
